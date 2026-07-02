@@ -55,16 +55,25 @@ because it governs whether escaping gas vents safely upward or migrates laterall
 2. **Evacuate and ventilate** any structure where gas has migrated or is suspected to have
    migrated (paved-capping cases); open doors/windows if safe to do so; do not use powered
    ventilation equipment that could itself be an ignition source.
-3. **Establish isolation:** dispatch crew to the nearest upstream and downstream isolation valves
-   for the affected segment; isolate the segment per the segment's MAOP and valve-spacing record.
+3. **Establish isolation:** on a segment with an actuator-equipped node, isolation fires
+   automatically the instant the segment is graded 1 — this is the one action in the response
+   chain that does not wait for human confirmation, because it is the action most sensitive to
+   delay. Automated isolation of this kind is only appropriate where the actuator has no
+   real-world consequence if it fires incorrectly (a benchtop/demonstration rig) or where the
+   segment sits behind a certified safety-instrumented system per a formal SIL assessment (IEC
+   61511/61508) — neither of which should be assumed for a given segment without checking. On
+   any other segment, dispatch crew to the nearest upstream and downstream isolation valves and
+   isolate the segment per the segment's MAOP and valve-spacing record.
 4. **Continuous atmosphere monitoring** at the leak site and in any structure within the migration
    radius using intrinsically safe gas detectors until concentration is confirmed below 20% of
    LEL and trending down.
 5. **Notify emergency services and gas control center** immediately; declare a gas emergency per
    the utility's emergency response plan; target response time is sub-30-minute arrival on site.
-6. **Human approval gate:** dispatch of field crew for physical isolation requires human
-   confirmation of the recommended action before execution — no autonomous valve isolation
-   (maturity level L3).
+6. **Human approval gate:** field crew dispatch — mobilising personnel and vehicles to the site
+   for repair, confirmation, and follow-up work — requires human confirmation before execution
+   (maturity level L3/L4). This gate does **not** apply to the automated segment isolation in
+   step 3, which is deliberately outside the approval requirement given how time-sensitive a
+   Grade 1 event is; it applies to every subsequent physical action a person performs on site.
 
 ## 4. Scheduled Repair Procedure — Grade 2
 
@@ -107,8 +116,10 @@ because it governs whether escaping gas vents safely upward or migrates laterall
 - **Isolation / lockout-tagout** of the segment's valves must be verified and tagged before repair
   work begins; a second-person verification of zero-energy (zero-pressure, purged) state is
   required before excavation reaches the pipe.
-- Permits require sign-off before dispatch proceeds from "recommended" to "in progress" — this is
-  the operational expression of the human-approval gate at maturity level L3.
+- Permits require sign-off before crew dispatch proceeds from "recommended" to "in progress" — this
+  is the operational expression of the human-approval gate at maturity level L3/L4. It governs
+  crew dispatch, not the automated segment isolation described in §3, which is deliberately
+  outside this gate.
 
 ## 8. Hazardous Area Classification (HCA) & Notification
 

@@ -1,0 +1,427 @@
+[
+  {
+    "model": "llama3.2:1b",
+    "warmup_s": 0.2,
+    "runs": [
+      {
+        "incident_id": "INC-0001",
+        "grade": 1,
+        "latency_s": 2.85,
+        "error": null,
+        "work_order": {
+          "title": "Emergency Leak Response Work Order",
+          "situation_summary": "Incident: Gas leak in SEG-001 with confirmed Grade 1 leak grade and IMMEDIATE priority.",
+          "isolation_protocol": [
+            "Assume containment mode.",
+            "Prevent gas from entering surrounding areas."
+          ],
+          "permit_to_work_required": true,
+          "ppe_required": [
+            "Personal Protective Equipment: Gas mask, gloves"
+          ],
+          "proximity_hazards": [
+            "Close to HCA threshold (8m)."
+          ],
+          "crew_summary": "Gas leak in SEG-001 confirmed as Grade 1 with IMMEDIATE priority.",
+          "citations": [
+            "{\"chunk_id\": \"INC-0001\", \"segment_id\": \"SEG-001\", \"grade\": \"1\", \"priority\": \"IMMEDIATE\"}",
+            "\"chunk_id\": \"PE_2008_04\""
+          ],
+          "degraded_mode": false
+        },
+        "checks": {
+          "schema_valid": true,
+          "cites_retrieved_chunk": false,
+          "no_contradicting_grade_mention": true,
+          "isolation_protocol_nonempty": true,
+          "ppe_nonempty": true,
+          "situation_summary_len": 87,
+          "crew_summary_len": 65
+        }
+      },
+      {
+        "incident_id": "INC-0004",
+        "grade": 3,
+        "latency_s": 3.61,
+        "error": null,
+        "work_order": {
+          "title": "Emergency Leak Response - Segment SEG-003",
+          "situation_summary": "Incident: Steel pipe leak detected, grade 3 hazard potential",
+          "isolation_protocol": [
+            "Eliminate ignition sources in the affected area immediately: no smoking, no electrical switches, no vehicle ignition within the hazard radius",
+            "Evacuate and ventilate any structure where gas has migrated or is suspected to have migrated (paved-capping cases); open doors/windows if safe to do so; do not use powered ventilation equipment that could itself be an ignition source"
+          ],
+          "permit_to_work_required": true,
+          "ppe_required": [
+            "Respirators",
+            "Personal Protective Equipment (PPE) for field crew (e.g. hard hats, gloves)"
+          ],
+          "proximity_hazards": [
+            "Confined spaces and structures near the affected area"
+          ],
+          "crew_summary": "Dispatch crew to isolate segment at upstream valves; ventilate affected area with intrinsically safe detectors until concentration confirmed below 20% of LEL",
+          "citations": [
+            "INC-0004",
+            "SEG-003"
+          ],
+          "degraded_mode": false
+        },
+        "checks": {
+          "schema_valid": true,
+          "cites_retrieved_chunk": false,
+          "no_contradicting_grade_mention": true,
+          "isolation_protocol_nonempty": true,
+          "ppe_nonempty": true,
+          "situation_summary_len": 60,
+          "crew_summary_len": 157
+        }
+      }
+    ]
+  },
+  {
+    "model": "llama3.2:3b",
+    "warmup_s": 18.44,
+    "runs": [
+      {
+        "incident_id": "INC-0001",
+        "grade": 1,
+        "latency_s": 4.43,
+        "error": null,
+        "work_order": {
+          "title": "Emergency Work Order",
+          "situation_summary": "Immediate response required due to detected gas leak on SEG-001, grade 1 (immediate hazard) with significant methane concentration and multiple corroborating signals indicating uncontrolled release.",
+          "isolation_protocol": [
+            "Isolating the affected segment from service to prevent further exposure",
+            "Notify local fire and emergency services as required"
+          ],
+          "permit_to_work_required": false,
+          "ppe_required": [
+            "Personal Protective Equipment (PPE)"
+          ],
+          "proximity_hazards": [
+            "Building at a distance of 8.0m from the leak location"
+          ],
+          "crew_summary": "Crew to perform emergency repair and isolation.",
+          "citations": [
+            "gas-leak-response-procedures_sec1_0"
+          ],
+          "degraded_mode": false
+        },
+        "checks": {
+          "schema_valid": true,
+          "cites_retrieved_chunk": true,
+          "no_contradicting_grade_mention": true,
+          "isolation_protocol_nonempty": true,
+          "ppe_nonempty": true,
+          "situation_summary_len": 198,
+          "crew_summary_len": 47
+        }
+      },
+      {
+        "incident_id": "INC-0004",
+        "grade": 3,
+        "latency_s": 5.2,
+        "error": null,
+        "work_order": {
+          "title": "Work Order: Emergency Leak Response",
+          "situation_summary": "Incident reported on June 1, 2025, at 10:07:00 UTC, involving a gas leak with low concentration, away from occupancy.",
+          "isolation_protocol": [
+            "Eliminate ignition sources in the affected area immediately.",
+            "Evacuate and ventilate any structure where gas has migrated or is suspected to have migrated."
+          ],
+          "permit_to_work_required": true,
+          "ppe_required": [
+            "Hard hat",
+            "Safety glasses",
+            "Fire-resistant gloves"
+          ],
+          "proximity_hazards": [
+            "Occupancy"
+          ],
+          "crew_summary": "Field crew to perform continuous atmosphere monitoring at the leak site and in any structure within the migration radius until concentration is confirmed below 20% of LEL and trending down.",
+          "citations": [
+            "gas-leak-response-procedures_sec1_0",
+            "gas-leak-response-procedures_sec2_0"
+          ],
+          "degraded_mode": false
+        },
+        "checks": {
+          "schema_valid": true,
+          "cites_retrieved_chunk": true,
+          "no_contradicting_grade_mention": true,
+          "isolation_protocol_nonempty": true,
+          "ppe_nonempty": true,
+          "situation_summary_len": 117,
+          "crew_summary_len": 189
+        }
+      }
+    ]
+  },
+  {
+    "model": "qwen3.5:0.8b",
+    "warmup_s": 16.91,
+    "runs": [
+      {
+        "incident_id": "INC-0001",
+        "grade": 1,
+        "latency_s": 3.29,
+        "error": "missing field: title",
+        "work_order": {
+          "degraded_mode": true
+        },
+        "checks": null
+      },
+      {
+        "incident_id": "INC-0004",
+        "grade": 3,
+        "latency_s": 3.19,
+        "error": "Expecting ',' delimiter: line 4 column 24 (char 85)",
+        "work_order": {
+          "degraded_mode": true
+        },
+        "checks": null
+      }
+    ]
+  },
+  {
+    "model": "qwen3.5:2b",
+    "warmup_s": 4.03,
+    "runs": [
+      {
+        "incident_id": "INC-0001",
+        "grade": 1,
+        "latency_s": 10.13,
+        "error": "Expecting ',' delimiter: line 6 column 77 (char 230)",
+        "work_order": {
+          "degraded_mode": true
+        },
+        "checks": null
+      },
+      {
+        "incident_id": "INC-0004",
+        "grade": 3,
+        "latency_s": 5.46,
+        "error": "missing field: title",
+        "work_order": {
+          "degraded_mode": true
+        },
+        "checks": null
+      }
+    ]
+  },
+  {
+    "model": "gemma4:e2b",
+    "warmup_s": 25.4,
+    "runs": [
+      {
+        "incident_id": "INC-0001",
+        "grade": 1,
+        "latency_s": 6.36,
+        "error": null,
+        "work_order": {
+          "title": "Emergency Work Order: Gas Leak Response",
+          "situation_summary": "Emergency response initiated for a gas leak on segment SEG-001.",
+          "isolation_protocol": [
+            "Immediate action required based on Grade 1 classification.",
+            "Proactive notification and coordination with emergency services required due to HCA flag."
+          ],
+          "permit_to_work_required": false,
+          "ppe_required": [
+            "Gas Leak Response Procedures & Regulatory Reference Digest > 1. Leak Grade Classification Criteria",
+            "Gas Leak Response Procedures & Regulatory Reference Digest > 8. Hazardous Area Classification (HCA) & Notification"
+          ],
+          "proximity_hazards": [
+            "The leak is classified as Grade 1, requiring immediate action.",
+            "The location has a High Consequence Area (HCA) flag (hca_flag: True).",
+            "Distance to building is 8.0 meters."
+          ],
+          "crew_summary": "Response window was from 2025-06-01 06:07:00 to 2025-06-01 06:12:00.",
+          "citations": [
+            "gas-leak-response-procedures_sec1_0",
+            "gas-leak-response_procedures_sec8_0"
+          ],
+          "degraded_mode": false
+        },
+        "checks": {
+          "schema_valid": true,
+          "cites_retrieved_chunk": true,
+          "no_contradicting_grade_mention": true,
+          "isolation_protocol_nonempty": true,
+          "ppe_nonempty": true,
+          "situation_summary_len": 63,
+          "crew_summary_len": 68
+        }
+      },
+      {
+        "incident_id": "INC-0004",
+        "grade": 3,
+        "latency_s": 7.49,
+        "error": null,
+        "work_order": {
+          "title": "Emergency Work Order - Gas Leak Monitoring",
+          "situation_summary": "Monitoring initiated for gas leak at SEG-003.",
+          "isolation_protocol": [
+            "Continuous atmosphere monitoring at the leak site and in any structure within the migration radius until concentration is confirmed below 20% of LEL and trending down. (gas-leak-response-procedures_sec3_0)",
+            "Notify emergency services and gas control center immediately; declare a gas emergency per the utility's emergency response plan; target response time is sub-30-minute arrival on site. (gas-leak-response_procedures_sec3_0)"
+          ],
+          "permit_to_work_required": false,
+          "ppe_required": [
+            "Intrinsic safe gas detectors (implied by continuous monitoring requirements).",
+            "Personal Protective Equipment (standard for field operations)."
+          ],
+          "proximity_hazards": [
+            "Distance to building: 120.0 meters.",
+            "Confinement: open_row, surface_capping_type: grass."
+          ],
+          "crew_summary": "Inspection of segment SEG-003 conducted between 2025-06-01 10:07:00+00:00 and 2025-06-01 10:12:00+00:00.",
+          "citations": [
+            "gas-leak-response-procedures_sec1_0",
+            "gas-leak-response_procedures_sec3_0",
+            "gas-leak-response_procedures_sec2_0"
+          ],
+          "degraded_mode": false
+        },
+        "checks": {
+          "schema_valid": true,
+          "cites_retrieved_chunk": true,
+          "no_contradicting_grade_mention": true,
+          "isolation_protocol_nonempty": true,
+          "ppe_nonempty": true,
+          "situation_summary_len": 45,
+          "crew_summary_len": 104
+        }
+      }
+    ]
+  },
+  {
+    "model": "gemma4:e4b",
+    "warmup_s": 10.27,
+    "runs": [
+      {
+        "incident_id": "INC-0001",
+        "grade": 1,
+        "latency_s": 9.2,
+        "error": null,
+        "work_order": {
+          "title": "EMERGENCY GAS LEAK RESPONSE WORK ORDER - IMMEDIATE ACTION REQUIRED",
+          "situation_summary": "Confirmed gas leak event detected on segment SEG-001, resulting in a Grade 1 hazard classification due to multiple corroborating signals (gas concentration and pressure loss). Gas was confined below the pavement. Peak methane reading was 37.65% LEL.",
+          "isolation_protocol": [
+            "Immediate isolation and repair required as per Grade 1 classification criteria."
+          ],
+          "permit_to_work_required": true,
+          "ppe_required": [
+            "Self-Contained Breathing Apparatus (SCBA)",
+            "Gas detection monitors (methane, LEL)"
+          ],
+          "proximity_hazards": [
+            "High Consequence Area (HCA) flag is active.",
+            "Leak distance to building is 8.0m, indicating close proximity."
+          ],
+          "crew_summary": "Gas control crew dispatch required for immediate hazard mitigation and repair.",
+          "citations": [
+            "[gas-leak-response-procedures_sec1_0]"
+          ],
+          "degraded_mode": false
+        },
+        "checks": {
+          "schema_valid": true,
+          "cites_retrieved_chunk": false,
+          "no_contradicting_grade_mention": true,
+          "isolation_protocol_nonempty": true,
+          "ppe_nonempty": true,
+          "situation_summary_len": 249,
+          "crew_summary_len": 78
+        }
+      },
+      {
+        "incident_id": "INC-0004",
+        "grade": 3,
+        "latency_s": 10.45,
+        "error": null,
+        "work_order": {
+          "title": "Emergency Work Order for Gas Leak Monitoring and Assessment",
+          "situation_summary": "Gas leak detected on segment SEG-003 during inspection route from 2025-06-01 10:07:00+00:00 to 2025-06-01 10:12:00+00:00. Leak characteristics indicate a Grade 3 (Monitor) classification.",
+          "isolation_protocol": [
+            "No immediate isolation required based on the determined grade, but continuous monitoring and assessment are necessary as per Grade 3 procedures.",
+            "Review procedures for open row/grass capping confinement to confirm venting path."
+          ],
+          "permit_to_work_required": true,
+          "ppe_required": [
+            "Standard Gas Leak response PPE (Details not specified in payload)"
+          ],
+          "proximity_hazards": [
+            "Distance to building: 120.0 m",
+            "Confinement type: open_row",
+            "Surface capping type: grass"
+          ],
+          "crew_summary": "Dispatch monitoring and assessment crew. Maintain continuous atmosphere monitoring at the leak site.",
+          "citations": [
+            "gas-leak-response-procedures_sec1_0"
+          ],
+          "degraded_mode": false
+        },
+        "checks": {
+          "schema_valid": true,
+          "cites_retrieved_chunk": true,
+          "no_contradicting_grade_mention": true,
+          "isolation_protocol_nonempty": true,
+          "ppe_nonempty": true,
+          "situation_summary_len": 187,
+          "crew_summary_len": 100
+        }
+      }
+    ]
+  },
+  {
+    "model": "deepseek-r1:1.5b",
+    "warmup_s": 2.22,
+    "runs": [
+      {
+        "incident_id": "INC-0001",
+        "grade": 1,
+        "latency_s": 5.88,
+        "error": "Unterminated string starting at: line 14 column 118 (char 663)",
+        "work_order": {
+          "degraded_mode": true
+        },
+        "checks": null
+      },
+      {
+        "incident_id": "INC-0004",
+        "grade": 3,
+        "latency_s": 5.46,
+        "error": "Expecting value: line 1 column 1 (char 0)",
+        "work_order": {
+          "degraded_mode": true
+        },
+        "checks": null
+      }
+    ]
+  },
+  {
+    "model": "deepseek-r1:8b",
+    "warmup_s": 18.28,
+    "runs": [
+      {
+        "incident_id": "INC-0001",
+        "grade": 1,
+        "latency_s": 34.97,
+        "error": "Expecting value: line 1 column 1 (char 0)",
+        "work_order": {
+          "degraded_mode": true
+        },
+        "checks": null
+      },
+      {
+        "incident_id": "INC-0004",
+        "grade": 3,
+        "latency_s": 35.63,
+        "error": "Expecting value: line 1 column 1 (char 0)",
+        "work_order": {
+          "degraded_mode": true
+        },
+        "checks": null
+      }
+    ]
+  }
+]

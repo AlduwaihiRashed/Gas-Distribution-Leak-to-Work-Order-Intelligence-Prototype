@@ -1,0 +1,11 @@
+{
+  "LIVE-1782988411-0002": {
+    "segment_id": "SEG-006",
+    "actuator_commanded": true,
+    "commanded_at": "2026-07-02T10:33:31.045271+00:00",
+    "commanded_at_monotonic": 8845.061402785,
+    "actuator_confirmed_state": "isolated",
+    "confirmed_at": "2026-07-02T10:33:31.446674+00:00",
+    "actuator_command_latency_s": 0.401
+  }
+}

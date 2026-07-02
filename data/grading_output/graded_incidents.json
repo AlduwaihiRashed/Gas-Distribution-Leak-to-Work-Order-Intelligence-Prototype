@@ -206,5 +206,32 @@
     "label_grade": 1.0,
     "assigned_grade": 1,
     "grading_rule": "paved capping (asphalt) forces lateral migration -> immediate hazard"
+  },
+  {
+    "incident_id": "LIVE-1782988411-0002",
+    "segment_id": "SEG-006",
+    "segment_meta": {
+      "material": "steel",
+      "install_year": 1995,
+      "MAOP_bar": 5.0,
+      "location_class": 2,
+      "hca_flag": true,
+      "distance_to_building_m": 5.0,
+      "confinement": "below_pavement",
+      "surface_capping_type": "concrete"
+    },
+    "start_utc": "2026-07-02 10:33:07.987824+00:00",
+    "end_utc": "2026-07-02 10:33:07.987824+00:00",
+    "duration_samples": 1,
+    "detected_trigger": "methane",
+    "detected_route": "inspection",
+    "peak_methane_pct_lel": 18.0,
+    "peak_acoustic_index": 0.05,
+    "min_pressure_bar": 5.0,
+    "label_event": null,
+    "label_grade": null,
+    "source": "live",
+    "assigned_grade": 1,
+    "grading_rule": "paved capping (concrete) forces lateral migration -> immediate hazard"
   }
 ]

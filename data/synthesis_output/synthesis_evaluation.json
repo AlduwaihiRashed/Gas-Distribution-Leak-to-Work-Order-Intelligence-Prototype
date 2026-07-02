@@ -1,0 +1,15 @@
+{
+  "model": "gemma4:e2b",
+  "total_incidents": 6,
+  "degraded_count": 0,
+  "degraded_incidents": [],
+  "citation_coverage": 1.0,
+  "uncited_incidents": [],
+  "latency_s": {
+    "avg": 7.283,
+    "max": 8.363,
+    "min": 5.253
+  },
+  "within_40s_budget": true,
+  "over_budget_incidents": []
+}

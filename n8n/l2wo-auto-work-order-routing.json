@@ -1,0 +1,185 @@
+{
+  "name": "L2WO - Auto Work Order Routing",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "seconds",
+              "secondsInterval": 10
+            }
+          ]
+        }
+      },
+      "id": "trigger",
+      "name": "Poll every 10s",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        0,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "url": "http://host.containers.internal:8000/incidents/pending",
+        "options": {}
+      },
+      "id": "getPending",
+      "name": "GET pending incidents",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        220,
+        0
+      ],
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://host.containers.internal:8000/work-orders/synthesize",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ { \"incident_id\": $json.incident_id } }}",
+        "options": {}
+      },
+      "id": "synthesize",
+      "name": "Synthesize + auto-route (M7)",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        660,
+        -80
+      ],
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {},
+      "id": "routedOk",
+      "name": "Routed to dashboard queue",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        900,
+        -160
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "const item = $('GET pending incidents').item.json;\nconst line = JSON.stringify({\n  timestamp: new Date().toISOString(),\n  banner: 'DEGRADED MODE - synthesis call failed, manual grading stands',\n  incident_id: item.incident_id,\n  segment_id: item.segment_id,\n  grade: item.grade,\n}) + \"\\n\";\nreturn [{ json: {}, binary: { data: { data: Buffer.from(line).toString('base64'), mimeType: 'text/plain', fileName: 'alert.log' } } }];"
+      },
+      "id": "buildAlert",
+      "name": "Build per-incident fallback alert",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        900,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "const line = JSON.stringify({\n  timestamp: new Date().toISOString(),\n  banner: 'DEGRADED MODE - orchestration API unreachable, cannot poll for pending incidents, pipeline stalled',\n}) + \"\\n\";\nreturn [{ json: {}, binary: { data: { data: Buffer.from(line).toString('base64'), mimeType: 'text/plain', fileName: 'alert.log' } } }];"
+      },
+      "id": "buildOutageAlert",
+      "name": "Build pipeline-outage alert",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        440,
+        160
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "write",
+        "fileName": "/home/node/.n8n-files/l2wo_orchestration_alerts.log",
+        "dataPropertyName": "data"
+      },
+      "id": "writeAlert",
+      "name": "Write alert log (latest state)",
+      "type": "n8n-nodes-base.readWriteFile",
+      "typeVersion": 1,
+      "position": [
+        1120,
+        0
+      ]
+    }
+  ],
+  "connections": {
+    "Poll every 10s": {
+      "main": [
+        [
+          {
+            "node": "GET pending incidents",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "GET pending incidents": {
+      "main": [
+        [
+          {
+            "node": "Synthesize + auto-route (M7)",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Build pipeline-outage alert",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Synthesize + auto-route (M7)": {
+      "main": [
+        [
+          {
+            "node": "Routed to dashboard queue",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Build per-incident fallback alert",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Build per-incident fallback alert": {
+      "main": [
+        [
+          {
+            "node": "Write alert log (latest state)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Build pipeline-outage alert": {
+      "main": [
+        [
+          {
+            "node": "Write alert log (latest state)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  }
+}

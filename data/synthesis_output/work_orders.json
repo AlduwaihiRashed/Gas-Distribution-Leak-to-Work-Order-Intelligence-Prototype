@@ -1,0 +1,193 @@
+[
+  {
+    "incident_id": "INC-0001",
+    "segment_id": "SEG-001",
+    "grade": 1,
+    "priority": "IMMEDIATE",
+    "model": "gemma4:e2b",
+    "latency_s": 5.253,
+    "work_order": {
+      "title": "Emergency Work Order - Gas Leak Response",
+      "situation_summary": "Immediate action required due to Grade 1 leak confirmed by multi-signal corroboration.",
+      "isolation_protocol": [
+        "Immediate action required per Grade 1 classification.",
+        "Proactive notification of affected occupants/facility and coordination with local fire and emergency services is required due to HCA status."
+      ],
+      "permit_to_work_required": false,
+      "ppe_required": [
+        "Notification to local fire and emergency services",
+        "Internal gas-control notification for affected facility"
+      ],
+      "proximity_hazards": [
+        "Distance to building is 8.0 meters.",
+        "Segment location has a High Consequence Area (HCA) flag set."
+      ],
+      "crew_summary": "Response initiated based on Grade 1 classification requiring immediate action.",
+      "citations": [
+        "gas-leak-response-procedures_sec1_0",
+        "gas-leak-response-procedures_sec8_0"
+      ],
+      "degraded_mode": false
+    }
+  },
+  {
+    "incident_id": "INC-0003",
+    "segment_id": "SEG-002",
+    "grade": 2,
+    "priority": "SCHEDULED",
+    "model": "gemma4:e2b",
+    "latency_s": 7.392,
+    "work_order": {
+      "title": "Emergency Work Order",
+      "situation_summary": "Scheduled repair required based on proximity to occupancy.",
+      "isolation_protocol": [
+        "Dispatch crew to the nearest upstream and downstream isolation valves for the affected segment; isolate the segment per the segment's MAOP and valve-spacing record.",
+        "Human approval gate: dispatch of field crew for physical isolation requires human confirmation of the recommended action before execution \u2014 no autonomous valve isolation (maturity level L3)."
+      ],
+      "permit_to_work_required": true,
+      "ppe_required": [
+        "Eliminate ignition sources in the affected area immediately: no smoking, no electrical switches, no vehicle ignition within the hazard radius.",
+        "Evacuate and ventilate any structure where gas has migrated or is suspected to have migrated (paved-capping cases); open doors/windows if safe to do so; do not use powered ventilation equipment that could itself be an ignition source."
+      ],
+      "proximity_hazards": [
+        "The leak is Grade 2, justified by proximity to occupied structures (distance to building: 45.0 m).",
+        "The confinement type is 'open_row'. The surface capping type is 'soil'."
+      ],
+      "crew_summary": "Inspection conducted between 2025-06-01 08:07:00+00:00 and 2025-06-01 08:12:00+00:00.",
+      "citations": [
+        "gas-leak-response-procedures_sec1_0",
+        "gas-leak-response-procedures_sec2_0"
+      ],
+      "degraded_mode": false
+    }
+  },
+  {
+    "incident_id": "INC-0004",
+    "segment_id": "SEG-003",
+    "grade": 3,
+    "priority": "MONITOR",
+    "model": "gemma4:e2b",
+    "latency_s": 8.063,
+    "work_order": {
+      "title": "Emergency Work Order: Gas Leak Monitoring",
+      "situation_summary": "Monitoring initiated for a gas leak in Segment SEG-003.",
+      "isolation_protocol": [
+        "Continuous atmosphere monitoring at the leak site and in any structure within the migration radius using intrinsically safe gas detectors until concentration is confirmed below 20% of LEL and trending down. (gas-leak-response-procedures_sec3_0)",
+        "Notify emergency services and gas control center immediately; declare a gas emergency per the utility's emergency response plan; target response time is sub-30-minute arrival on site. (gas-leak-response-procedures_sec3_0)"
+      ],
+      "permit_to_work_required": false,
+      "ppe_required": [
+        "Eliminate ignition sources in the affected area immediately: no smoking, no electrical switches, no vehicle ignition within the hazard radius. (gas-leak-response-procedures_sec3_0)"
+      ],
+      "proximity_hazards": [
+        "Distance to building is 120.0 meters. (INCIDENT PAYLOAD)",
+        "The leak is in an open_row with grass surface_capping_type, which implies permeable cover. (INCIDENT PAYLOAD)"
+      ],
+      "crew_summary": "Inspection work to be performed between 2025-06-01 10:07:00+00:00 and 2025-06-01 10:12:00+00:00. (INCIDENT PAYLOAD)",
+      "citations": [
+        "gas-leak-response-procedures_sec1_0",
+        "gas-leak-response-procedures_sec3_0",
+        "gas-leak-response-procedures_sec2_0"
+      ],
+      "degraded_mode": false
+    }
+  },
+  {
+    "incident_id": "INC-0006",
+    "segment_id": "SEG-004",
+    "grade": 1,
+    "priority": "IMMEDIATE",
+    "model": "gemma4:e2b",
+    "latency_s": 8.363,
+    "work_order": {
+      "title": "Emergency Work Order",
+      "situation_summary": "Immediate response required due to a gas leak.",
+      "isolation_protocol": [
+        "Dispatch crew to the nearest upstream and downstream isolation valves for the affected segment; isolate the segment per the segment's MAOP and valve-spacing record.",
+        "Human approval gate: dispatch of field crew for physical isolation requires human confirmation of the recommended action before execution \u2014 no autonomous valve isolation (maturity level L3).",
+        "Continuous atmosphere monitoring at the leak site and in any structure within the migration radius using intrinsically safe gas detectors until concentration is confirmed below 20% of LEL and trending down."
+      ],
+      "permit_to_work_required": true,
+      "ppe_required": [
+        "Eliminate ignition sources in the affected area immediately: no smoking, no electrical switches, no vehicle ignition within the hazard radius.",
+        "Evacuate and ventilate any structure where gas has migrated or is suspected to have migrated (paved-capping cases); open doors/windows if safe to do so; do not use powered ventilation equipment that could itself be an ignition source."
+      ],
+      "proximity_hazards": [
+        "The leak constitutes an immediate hazard due to grading rule: paved capping (concrete) forces lateral migration -> immediate hazard.",
+        "Location is in a High Consequence Area (HCA) based on location_class: 3 and hca_flag: True."
+      ],
+      "crew_summary": "Start time: 2025-06-01 18:07:00+00:00, End time: 2025-06-01 18:12:00+00:00",
+      "citations": [
+        "gas-leak-response-procedures_sec1_0",
+        "gas-leak-response-procedures_sec3_0",
+        "gas-leak-response-procedures_sec8_0"
+      ],
+      "degraded_mode": false
+    }
+  },
+  {
+    "incident_id": "INC-0007",
+    "segment_id": "SEG-005A",
+    "grade": 3,
+    "priority": "MONITOR",
+    "model": "gemma4:e2b",
+    "latency_s": 7.043,
+    "work_order": {
+      "title": "Emergency Work Order",
+      "situation_summary": "Gas leak detected in segment SEG-005A.",
+      "isolation_protocol": [
+        "Monitor/Re-evaluate based on Grading Rule: unpaved, low concentration, away from occupancy -> monitor/re-evaluate",
+        "No immediate Grade 1 response procedure specified as the grading is Grade 3 (MONITOR)",
+        "Field crew dispatch for physical isolation requires human confirmation before execution (Procedure Reference: gas-leak-response-procedures_sec3_0)"
+      ],
+      "permit_to_work_required": false,
+      "ppe_required": [
+        "Continuous atmosphere monitoring at the leak site and in any structure within the migration radius until concentration is confirmed below 20% of LEL and trending down (Procedure Reference: gas-leak-response-procedures_sec3_0)"
+      ],
+      "proximity_hazards": [
+        "Distance to building is 30.0 m.",
+        "Surface capping type is soil."
+      ],
+      "crew_summary": "Inspection route initiated between 2025-06-01 22:07:00+00:00 and 2025-06-01 22:12:00+00:00.",
+      "citations": [
+        "gas-leak-response-procedures_sec1_0",
+        "gas-leak-response-procedures_sec3_0",
+        "gas-leak-response-procedures_sec2_0"
+      ],
+      "degraded_mode": false
+    }
+  },
+  {
+    "incident_id": "INC-0008",
+    "segment_id": "SEG-005B",
+    "grade": 1,
+    "priority": "IMMEDIATE",
+    "model": "gemma4:e2b",
+    "latency_s": 7.583,
+    "work_order": {
+      "title": "Emergency Work Order: Gas Leak Response",
+      "situation_summary": "Immediate response required due to gas leak detected under paved capping, indicating high migration risk.",
+      "isolation_protocol": [
+        "Eliminate ignition sources in the affected area immediately.",
+        "Evacuate and ventilate any structure where gas has migrated or is suspected to have migrated (paved-capping cases); open doors/windows if safe to do so; do not use powered ventilation equipment that could itself be an ignition source.",
+        "Establish isolation: dispatch crew to the nearest upstream and downstream isolation valves for the affected segment; isolate the segment per the segment's MAOP and valve-spacing record.",
+        "Continuous atmosphere monitoring at the leak site and in any structure within the migration radius using intrinsically safe gas detectors until concentration is confirmed below 20% of LEL and trending down.",
+        "Notify emergency services and gas control center immediately; declare a gas emergency per the utility's emergency response plan; target response time is sub-30-minute arrival on site."
+      ],
+      "permit_to_work_required": false,
+      "ppe_required": [
+        "Intrinsically safe gas detectors"
+      ],
+      "proximity_hazards": [
+        "Distance to building: 30.0 m"
+      ],
+      "crew_summary": "Field crew dispatch required for physical isolation requires human confirmation of the recommended action before execution (Human approval gate) [gas-leak-response-procedures_sec3_0].",
+      "citations": [
+        "gas-leak-response-procedures_sec1_0",
+        "gas-leak-response-procedures_sec2_0",
+        "gas-leak-response-procedures_sec3_0"
+      ],
+      "degraded_mode": false
+    }
+  }
+]

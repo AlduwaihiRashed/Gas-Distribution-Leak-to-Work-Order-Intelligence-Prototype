@@ -1,0 +1,104 @@
+{
+  "name": "L2WO - Dispatch Approval Gate",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "approve-dispatch",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "webhook",
+      "name": "Approval webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        0,
+        0
+      ],
+      "webhookId": "8df79d18-307e-4f4e-b4ac-e5b6512eb722"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "=http://host.containers.internal:8000/work-orders/{{ $json.body.incident_id }}/approve",
+        "options": {}
+      },
+      "id": "approve",
+      "name": "Approve physical dispatch (human gate)",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        220,
+        0
+      ],
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ $json }}",
+        "options": {}
+      },
+      "id": "respondOk",
+      "name": "Respond: dispatched",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        440,
+        -80
+      ]
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ { \"error\": \"approval failed\", \"detail\": $json.error?.message || $json } }}",
+        "options": {
+          "responseCode": 502
+        }
+      },
+      "id": "respondErr",
+      "name": "Respond: approval failed",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        440,
+        80
+      ]
+    }
+  ],
+  "connections": {
+    "Approval webhook": {
+      "main": [
+        [
+          {
+            "node": "Approve physical dispatch (human gate)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Approve physical dispatch (human gate)": {
+      "main": [
+        [
+          {
+            "node": "Respond: dispatched",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Respond: approval failed",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  }
+}
