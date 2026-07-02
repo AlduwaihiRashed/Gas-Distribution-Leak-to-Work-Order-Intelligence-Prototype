@@ -1,0 +1,40 @@
+{
+  "dq": {
+    "rows_dropped_dedup": 0,
+    "schema_valid": true,
+    "schema_errors": [],
+    "rows_after_dq": 429
+  },
+  "detection": {
+    "ground_truth_leak_blocks": 6,
+    "total_incidents_detected": 8,
+    "true_positives": 6,
+    "false_positives": 0,
+    "correct_hydraulic_checks": 2,
+    "false_negatives": 0,
+    "precision": 1.0,
+    "recall": 1.0,
+    "f1": 1.0,
+    "signal_route_match_of_tp": 5,
+    "fp_by_event_type": {
+      "sensor_drift": 0,
+      "normal": 0,
+      "noise_spike": 0
+    },
+    "note": "signal_route_match counts where detection routing matches ground truth. Surface-fidelity pair diverges intentionally \u2014 grading (M4) resolves it."
+  },
+  "config": {
+    "methane_lel_threshold": 10.0,
+    "acoustic_threshold": 0.18,
+    "pressure_ewma_span": 200,
+    "pressure_abs_drop_bar": 0.08,
+    "persistence_n": 3,
+    "isolation_forest_contamination": 0.05,
+    "isolation_forest_features": [
+      "pressure_bar",
+      "methane_pct_lel",
+      "acoustic_index",
+      "flow_scm_h"
+    ]
+  }
+}

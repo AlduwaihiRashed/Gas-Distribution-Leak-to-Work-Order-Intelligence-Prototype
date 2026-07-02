@@ -1,0 +1,92 @@
+{
+  "total_gradable_incidents": 6,
+  "incidents_with_citation_retrieved": 6,
+  "incidents_below_min_score": [],
+  "coverage_ok": true,
+  "spot_check": [
+    {
+      "incident_id": "INC-0001",
+      "segment_id": "SEG-001",
+      "assigned_grade": 1,
+      "surface_capping_type": "asphalt",
+      "query": "Grade 1 gas leak, methane and pressure corroborated, asphalt surface capping, near occupied building, HCA zone \u2014 isolation and emergency response procedure.",
+      "top_citation": {
+        "chunk_id": "gas-leak-response-procedures_sec1_0",
+        "source_doc": "gas-leak-response-procedures.md",
+        "location": "Gas Leak Response Procedures & Regulatory Reference Digest > 1. Leak Grade Classification Criteria",
+        "text": "Gas distribution leaks are classified into three grades based on hazard potential, following the GPTC Guide classification adopted under 49 CFR Part 192 Subpart M leak-survey and repair requirements: - **Grade 1 \u2014 existing or probable hazard, requires immediate action.** Any leak that represents an existing or probable hazard to persons or property and requires immediate repair or continuous action until the condition is no longer hazardous. Triggers include: gas concentration at or above a significant fraction of the lower explosive limit (LEL, ~5% vol methane in air) in a confined space or structure; gas migrating into or under a building; multiple corroborating signals (pressure loss with confirmed gas presence) indicating an uncontrolled release. - **Grade 2 \u2014 non-hazardous at time of detection, justifies scheduled repair.** The leak is recognized as non-hazardous at the time of detection but justifies scheduled repair based on probable future hazard, including proximity to occupied structures or High Consequence Areas (HCA), or elevated gas concentration trending toward hazardous levels. - **Grade 3 \u2014 non-hazardous, monitor.** The leak is not hazardous at the time of detection and can reasonably be expected to remain non-hazardous, typically low-concentration leaks in open right-of-way, away from structures, venting freely to atmosphere.",
+        "score": 0.6524
+      }
+    },
+    {
+      "incident_id": "INC-0003",
+      "segment_id": "SEG-002",
+      "assigned_grade": 2,
+      "surface_capping_type": "soil",
+      "query": "Grade 2 gas leak, methane/acoustic detected, soil surface capping, in open right-of-way \u2014 isolation and emergency response procedure.",
+      "top_citation": {
+        "chunk_id": "gas-leak-response-procedures_sec1_0",
+        "source_doc": "gas-leak-response-procedures.md",
+        "location": "Gas Leak Response Procedures & Regulatory Reference Digest > 1. Leak Grade Classification Criteria",
+        "text": "Gas distribution leaks are classified into three grades based on hazard potential, following the GPTC Guide classification adopted under 49 CFR Part 192 Subpart M leak-survey and repair requirements: - **Grade 1 \u2014 existing or probable hazard, requires immediate action.** Any leak that represents an existing or probable hazard to persons or property and requires immediate repair or continuous action until the condition is no longer hazardous. Triggers include: gas concentration at or above a significant fraction of the lower explosive limit (LEL, ~5% vol methane in air) in a confined space or structure; gas migrating into or under a building; multiple corroborating signals (pressure loss with confirmed gas presence) indicating an uncontrolled release. - **Grade 2 \u2014 non-hazardous at time of detection, justifies scheduled repair.** The leak is recognized as non-hazardous at the time of detection but justifies scheduled repair based on probable future hazard, including proximity to occupied structures or High Consequence Areas (HCA), or elevated gas concentration trending toward hazardous levels. - **Grade 3 \u2014 non-hazardous, monitor.** The leak is not hazardous at the time of detection and can reasonably be expected to remain non-hazardous, typically low-concentration leaks in open right-of-way, away from structures, venting freely to atmosphere.",
+        "score": 0.6099
+      }
+    },
+    {
+      "incident_id": "INC-0004",
+      "segment_id": "SEG-003",
+      "assigned_grade": 3,
+      "surface_capping_type": "grass",
+      "query": "Grade 3 gas leak, methane/acoustic detected, grass surface capping, in open right-of-way \u2014 isolation and emergency response procedure.",
+      "top_citation": {
+        "chunk_id": "gas-leak-response-procedures_sec1_0",
+        "source_doc": "gas-leak-response-procedures.md",
+        "location": "Gas Leak Response Procedures & Regulatory Reference Digest > 1. Leak Grade Classification Criteria",
+        "text": "Gas distribution leaks are classified into three grades based on hazard potential, following the GPTC Guide classification adopted under 49 CFR Part 192 Subpart M leak-survey and repair requirements: - **Grade 1 \u2014 existing or probable hazard, requires immediate action.** Any leak that represents an existing or probable hazard to persons or property and requires immediate repair or continuous action until the condition is no longer hazardous. Triggers include: gas concentration at or above a significant fraction of the lower explosive limit (LEL, ~5% vol methane in air) in a confined space or structure; gas migrating into or under a building; multiple corroborating signals (pressure loss with confirmed gas presence) indicating an uncontrolled release. - **Grade 2 \u2014 non-hazardous at time of detection, justifies scheduled repair.** The leak is recognized as non-hazardous at the time of detection but justifies scheduled repair based on probable future hazard, including proximity to occupied structures or High Consequence Areas (HCA), or elevated gas concentration trending toward hazardous levels. - **Grade 3 \u2014 non-hazardous, monitor.** The leak is not hazardous at the time of detection and can reasonably be expected to remain non-hazardous, typically low-concentration leaks in open right-of-way, away from structures, venting freely to atmosphere.",
+        "score": 0.5802
+      }
+    },
+    {
+      "incident_id": "INC-0006",
+      "segment_id": "SEG-004",
+      "assigned_grade": 1,
+      "surface_capping_type": "concrete",
+      "query": "Grade 1 gas leak, methane/acoustic detected, concrete surface capping, near occupied building, HCA zone \u2014 isolation and emergency response procedure.",
+      "top_citation": {
+        "chunk_id": "gas-leak-response-procedures_sec1_0",
+        "source_doc": "gas-leak-response-procedures.md",
+        "location": "Gas Leak Response Procedures & Regulatory Reference Digest > 1. Leak Grade Classification Criteria",
+        "text": "Gas distribution leaks are classified into three grades based on hazard potential, following the GPTC Guide classification adopted under 49 CFR Part 192 Subpart M leak-survey and repair requirements: - **Grade 1 \u2014 existing or probable hazard, requires immediate action.** Any leak that represents an existing or probable hazard to persons or property and requires immediate repair or continuous action until the condition is no longer hazardous. Triggers include: gas concentration at or above a significant fraction of the lower explosive limit (LEL, ~5% vol methane in air) in a confined space or structure; gas migrating into or under a building; multiple corroborating signals (pressure loss with confirmed gas presence) indicating an uncontrolled release. - **Grade 2 \u2014 non-hazardous at time of detection, justifies scheduled repair.** The leak is recognized as non-hazardous at the time of detection but justifies scheduled repair based on probable future hazard, including proximity to occupied structures or High Consequence Areas (HCA), or elevated gas concentration trending toward hazardous levels. - **Grade 3 \u2014 non-hazardous, monitor.** The leak is not hazardous at the time of detection and can reasonably be expected to remain non-hazardous, typically low-concentration leaks in open right-of-way, away from structures, venting freely to atmosphere.",
+        "score": 0.6381
+      }
+    },
+    {
+      "incident_id": "INC-0007",
+      "segment_id": "SEG-005A",
+      "assigned_grade": 3,
+      "surface_capping_type": "soil",
+      "query": "Grade 3 gas leak, methane/acoustic detected, soil surface capping, in open right-of-way \u2014 isolation and emergency response procedure.",
+      "top_citation": {
+        "chunk_id": "gas-leak-response-procedures_sec1_0",
+        "source_doc": "gas-leak-response-procedures.md",
+        "location": "Gas Leak Response Procedures & Regulatory Reference Digest > 1. Leak Grade Classification Criteria",
+        "text": "Gas distribution leaks are classified into three grades based on hazard potential, following the GPTC Guide classification adopted under 49 CFR Part 192 Subpart M leak-survey and repair requirements: - **Grade 1 \u2014 existing or probable hazard, requires immediate action.** Any leak that represents an existing or probable hazard to persons or property and requires immediate repair or continuous action until the condition is no longer hazardous. Triggers include: gas concentration at or above a significant fraction of the lower explosive limit (LEL, ~5% vol methane in air) in a confined space or structure; gas migrating into or under a building; multiple corroborating signals (pressure loss with confirmed gas presence) indicating an uncontrolled release. - **Grade 2 \u2014 non-hazardous at time of detection, justifies scheduled repair.** The leak is recognized as non-hazardous at the time of detection but justifies scheduled repair based on probable future hazard, including proximity to occupied structures or High Consequence Areas (HCA), or elevated gas concentration trending toward hazardous levels. - **Grade 3 \u2014 non-hazardous, monitor.** The leak is not hazardous at the time of detection and can reasonably be expected to remain non-hazardous, typically low-concentration leaks in open right-of-way, away from structures, venting freely to atmosphere.",
+        "score": 0.6066
+      }
+    },
+    {
+      "incident_id": "INC-0008",
+      "segment_id": "SEG-005B",
+      "assigned_grade": 1,
+      "surface_capping_type": "asphalt",
+      "query": "Grade 1 gas leak, methane/acoustic detected, asphalt surface capping, in open right-of-way \u2014 isolation and emergency response procedure.",
+      "top_citation": {
+        "chunk_id": "gas-leak-response-procedures_sec1_0",
+        "source_doc": "gas-leak-response-procedures.md",
+        "location": "Gas Leak Response Procedures & Regulatory Reference Digest > 1. Leak Grade Classification Criteria",
+        "text": "Gas distribution leaks are classified into three grades based on hazard potential, following the GPTC Guide classification adopted under 49 CFR Part 192 Subpart M leak-survey and repair requirements: - **Grade 1 \u2014 existing or probable hazard, requires immediate action.** Any leak that represents an existing or probable hazard to persons or property and requires immediate repair or continuous action until the condition is no longer hazardous. Triggers include: gas concentration at or above a significant fraction of the lower explosive limit (LEL, ~5% vol methane in air) in a confined space or structure; gas migrating into or under a building; multiple corroborating signals (pressure loss with confirmed gas presence) indicating an uncontrolled release. - **Grade 2 \u2014 non-hazardous at time of detection, justifies scheduled repair.** The leak is recognized as non-hazardous at the time of detection but justifies scheduled repair based on probable future hazard, including proximity to occupied structures or High Consequence Areas (HCA), or elevated gas concentration trending toward hazardous levels. - **Grade 3 \u2014 non-hazardous, monitor.** The leak is not hazardous at the time of detection and can reasonably be expected to remain non-hazardous, typically low-concentration leaks in open right-of-way, away from structures, venting freely to atmosphere.",
+        "score": 0.5917
+      }
+    }
+  ]
+}

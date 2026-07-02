@@ -1,0 +1,164 @@
+[
+  {
+    "incident_id": "INC-0001",
+    "query": "Grade 1 gas leak, methane and pressure corroborated, asphalt surface capping, near occupied building, HCA zone \u2014 isolation and emergency response procedure.",
+    "citations": [
+      {
+        "chunk_id": "gas-leak-response-procedures_sec1_0",
+        "source_doc": "gas-leak-response-procedures.md",
+        "location": "Gas Leak Response Procedures & Regulatory Reference Digest > 1. Leak Grade Classification Criteria",
+        "text": "Gas distribution leaks are classified into three grades based on hazard potential, following the GPTC Guide classification adopted under 49 CFR Part 192 Subpart M leak-survey and repair requirements: - **Grade 1 \u2014 existing or probable hazard, requires immediate action.** Any leak that represents an existing or probable hazard to persons or property and requires immediate repair or continuous action until the condition is no longer hazardous. Triggers include: gas concentration at or above a significant fraction of the lower explosive limit (LEL, ~5% vol methane in air) in a confined space or structure; gas migrating into or under a building; multiple corroborating signals (pressure loss with confirmed gas presence) indicating an uncontrolled release. - **Grade 2 \u2014 non-hazardous at time of detection, justifies scheduled repair.** The leak is recognized as non-hazardous at the time of detection but justifies scheduled repair based on probable future hazard, including proximity to occupied structures or High Consequence Areas (HCA), or elevated gas concentration trending toward hazardous levels. - **Grade 3 \u2014 non-hazardous, monitor.** The leak is not hazardous at the time of detection and can reasonably be expected to remain non-hazardous, typically low-concentration leaks in open right-of-way, away from structures, venting freely to atmosphere.",
+        "score": 0.6524
+      },
+      {
+        "chunk_id": "gas-leak-response-procedures_sec8_0",
+        "source_doc": "gas-leak-response-procedures.md",
+        "location": "Gas Leak Response Procedures & Regulatory Reference Digest > 8. Hazardous Area Classification (HCA) & Notification",
+        "text": "- A **High Consequence Area (HCA)** flag indicates population density, occupied structures, or identified sites (schools, hospitals) within the potential impact radius of a worst-case release on that segment, per PNGRB T4S and OISD-226 CGD safety guidance. - Any Grade 1 or escalating Grade 2 leak within an HCA requires proactive notification of the affected occupants/facility and, for public-safety-relevant leaks, coordination with local fire and emergency services in addition to internal gas-control notification. - Distance-to-building thresholds (e.g. \u226420m) are used as a proxy for HCA proximity when a formal HCA polygon flag is not independently available for a given segment.",
+        "score": 0.579
+      },
+      {
+        "chunk_id": "gas-leak-response-procedures_sec5_0",
+        "source_doc": "gas-leak-response-procedures.md",
+        "location": "Gas Leak Response Procedures & Regulatory Reference Digest > 5. Monitoring Procedure \u2014 Grade 3",
+        "text": "1. Log the leak location and re-evaluate on the utility's standard periodic leak-survey cycle. 2. No immediate excavation required; include in routine main-replacement/rehabilitation planning if recurrent at the same segment. 3. Re-grade immediately if any subsequent survey shows elevated concentration, new construction changing surface capping (e.g. paving over a previously open right-of-way), or new occupancy within the HCA proximity threshold.",
+        "score": 0.5271
+      }
+    ]
+  },
+  {
+    "incident_id": "INC-0003",
+    "query": "Grade 2 gas leak, methane/acoustic detected, soil surface capping, in open right-of-way \u2014 isolation and emergency response procedure.",
+    "citations": [
+      {
+        "chunk_id": "gas-leak-response-procedures_sec1_0",
+        "source_doc": "gas-leak-response-procedures.md",
+        "location": "Gas Leak Response Procedures & Regulatory Reference Digest > 1. Leak Grade Classification Criteria",
+        "text": "Gas distribution leaks are classified into three grades based on hazard potential, following the GPTC Guide classification adopted under 49 CFR Part 192 Subpart M leak-survey and repair requirements: - **Grade 1 \u2014 existing or probable hazard, requires immediate action.** Any leak that represents an existing or probable hazard to persons or property and requires immediate repair or continuous action until the condition is no longer hazardous. Triggers include: gas concentration at or above a significant fraction of the lower explosive limit (LEL, ~5% vol methane in air) in a confined space or structure; gas migrating into or under a building; multiple corroborating signals (pressure loss with confirmed gas presence) indicating an uncontrolled release. - **Grade 2 \u2014 non-hazardous at time of detection, justifies scheduled repair.** The leak is recognized as non-hazardous at the time of detection but justifies scheduled repair based on probable future hazard, including proximity to occupied structures or High Consequence Areas (HCA), or elevated gas concentration trending toward hazardous levels. - **Grade 3 \u2014 non-hazardous, monitor.** The leak is not hazardous at the time of detection and can reasonably be expected to remain non-hazardous, typically low-concentration leaks in open right-of-way, away from structures, venting freely to atmosphere.",
+        "score": 0.6099
+      },
+      {
+        "chunk_id": "gas-leak-response-procedures_sec3_0",
+        "source_doc": "gas-leak-response-procedures.md",
+        "location": "Gas Leak Response Procedures & Regulatory Reference Digest > 3. Immediate Response Procedure \u2014 Grade 1 (Hazardous)",
+        "text": "1. **Eliminate ignition sources** in the affected area immediately: no smoking, no electrical switches, no vehicle ignition within the hazard radius. 2. **Evacuate and ventilate** any structure where gas has migrated or is suspected to have migrated (paved-capping cases); open doors/windows if safe to do so; do not use powered ventilation equipment that could itself be an ignition source. 3. **Establish isolation:** dispatch crew to the nearest upstream and downstream isolation valves for the affected segment; isolate the segment per the segment's MAOP and valve-spacing record. 4. **Continuous atmosphere monitoring** at the leak site and in any structure within the migration radius using intrinsically safe gas detectors until concentration is confirmed below 20% of LEL and trending down. 5. **Notify emergency services and gas control center** immediately; declare a gas emergency per the utility's emergency response plan; target response time is sub-30-minute arrival on site. 6. **Human approval gate:** dispatch of field crew for physical isolation requires human confirmation of the recommended action before execution \u2014 no autonomous valve isolation (maturity level L3).",
+        "score": 0.5458
+      },
+      {
+        "chunk_id": "gas-leak-response-procedures_sec2_0",
+        "source_doc": "gas-leak-response-procedures.md",
+        "location": "Gas Leak Response Procedures & Regulatory Reference Digest > 2. Surface Capping & Migration Guidance",
+        "text": "Ground cover over a leaking pipe is a primary grade escalator, independent of leak magnitude, because it governs whether escaping gas vents safely upward or migrates laterally underground: - **Soil / grass / unpaved cover:** permeable to gas; a leak typically vents vertically to atmosphere and disperses, which is why an unpaved leak away from occupancy is usually Grade 3 even at moderate concentration. - **Asphalt / concrete / paved cover:** impermeable; escaping gas cannot vent vertically and instead migrates laterally underground, often for tens of meters, following the path of least resistance (utility trenches, sewer lines, building foundations) until it finds an entry point into a structure. A leak under pavement must be treated as **Grade 1 regardless of measured surface concentration**, because the absence of a strong surface reading does not rule out gas accumulating in a nearby basement or utility vault. - Confinement type (`below_pavement` vs `open_row`) should be read together with capping type: below-pavement confinement combined with paved capping is the highest-migration-risk configuration and always escalates to Grade 1 under this scheme.",
+        "score": 0.5258
+      }
+    ]
+  },
+  {
+    "incident_id": "INC-0004",
+    "query": "Grade 3 gas leak, methane/acoustic detected, grass surface capping, in open right-of-way \u2014 isolation and emergency response procedure.",
+    "citations": [
+      {
+        "chunk_id": "gas-leak-response-procedures_sec1_0",
+        "source_doc": "gas-leak-response-procedures.md",
+        "location": "Gas Leak Response Procedures & Regulatory Reference Digest > 1. Leak Grade Classification Criteria",
+        "text": "Gas distribution leaks are classified into three grades based on hazard potential, following the GPTC Guide classification adopted under 49 CFR Part 192 Subpart M leak-survey and repair requirements: - **Grade 1 \u2014 existing or probable hazard, requires immediate action.** Any leak that represents an existing or probable hazard to persons or property and requires immediate repair or continuous action until the condition is no longer hazardous. Triggers include: gas concentration at or above a significant fraction of the lower explosive limit (LEL, ~5% vol methane in air) in a confined space or structure; gas migrating into or under a building; multiple corroborating signals (pressure loss with confirmed gas presence) indicating an uncontrolled release. - **Grade 2 \u2014 non-hazardous at time of detection, justifies scheduled repair.** The leak is recognized as non-hazardous at the time of detection but justifies scheduled repair based on probable future hazard, including proximity to occupied structures or High Consequence Areas (HCA), or elevated gas concentration trending toward hazardous levels. - **Grade 3 \u2014 non-hazardous, monitor.** The leak is not hazardous at the time of detection and can reasonably be expected to remain non-hazardous, typically low-concentration leaks in open right-of-way, away from structures, venting freely to atmosphere.",
+        "score": 0.5802
+      },
+      {
+        "chunk_id": "gas-leak-response-procedures_sec3_0",
+        "source_doc": "gas-leak-response-procedures.md",
+        "location": "Gas Leak Response Procedures & Regulatory Reference Digest > 3. Immediate Response Procedure \u2014 Grade 1 (Hazardous)",
+        "text": "1. **Eliminate ignition sources** in the affected area immediately: no smoking, no electrical switches, no vehicle ignition within the hazard radius. 2. **Evacuate and ventilate** any structure where gas has migrated or is suspected to have migrated (paved-capping cases); open doors/windows if safe to do so; do not use powered ventilation equipment that could itself be an ignition source. 3. **Establish isolation:** dispatch crew to the nearest upstream and downstream isolation valves for the affected segment; isolate the segment per the segment's MAOP and valve-spacing record. 4. **Continuous atmosphere monitoring** at the leak site and in any structure within the migration radius using intrinsically safe gas detectors until concentration is confirmed below 20% of LEL and trending down. 5. **Notify emergency services and gas control center** immediately; declare a gas emergency per the utility's emergency response plan; target response time is sub-30-minute arrival on site. 6. **Human approval gate:** dispatch of field crew for physical isolation requires human confirmation of the recommended action before execution \u2014 no autonomous valve isolation (maturity level L3).",
+        "score": 0.5295
+      },
+      {
+        "chunk_id": "gas-leak-response-procedures_sec2_0",
+        "source_doc": "gas-leak-response-procedures.md",
+        "location": "Gas Leak Response Procedures & Regulatory Reference Digest > 2. Surface Capping & Migration Guidance",
+        "text": "Ground cover over a leaking pipe is a primary grade escalator, independent of leak magnitude, because it governs whether escaping gas vents safely upward or migrates laterally underground: - **Soil / grass / unpaved cover:** permeable to gas; a leak typically vents vertically to atmosphere and disperses, which is why an unpaved leak away from occupancy is usually Grade 3 even at moderate concentration. - **Asphalt / concrete / paved cover:** impermeable; escaping gas cannot vent vertically and instead migrates laterally underground, often for tens of meters, following the path of least resistance (utility trenches, sewer lines, building foundations) until it finds an entry point into a structure. A leak under pavement must be treated as **Grade 1 regardless of measured surface concentration**, because the absence of a strong surface reading does not rule out gas accumulating in a nearby basement or utility vault. - Confinement type (`below_pavement` vs `open_row`) should be read together with capping type: below-pavement confinement combined with paved capping is the highest-migration-risk configuration and always escalates to Grade 1 under this scheme.",
+        "score": 0.498
+      }
+    ]
+  },
+  {
+    "incident_id": "INC-0006",
+    "query": "Grade 1 gas leak, methane/acoustic detected, concrete surface capping, near occupied building, HCA zone \u2014 isolation and emergency response procedure.",
+    "citations": [
+      {
+        "chunk_id": "gas-leak-response-procedures_sec1_0",
+        "source_doc": "gas-leak-response-procedures.md",
+        "location": "Gas Leak Response Procedures & Regulatory Reference Digest > 1. Leak Grade Classification Criteria",
+        "text": "Gas distribution leaks are classified into three grades based on hazard potential, following the GPTC Guide classification adopted under 49 CFR Part 192 Subpart M leak-survey and repair requirements: - **Grade 1 \u2014 existing or probable hazard, requires immediate action.** Any leak that represents an existing or probable hazard to persons or property and requires immediate repair or continuous action until the condition is no longer hazardous. Triggers include: gas concentration at or above a significant fraction of the lower explosive limit (LEL, ~5% vol methane in air) in a confined space or structure; gas migrating into or under a building; multiple corroborating signals (pressure loss with confirmed gas presence) indicating an uncontrolled release. - **Grade 2 \u2014 non-hazardous at time of detection, justifies scheduled repair.** The leak is recognized as non-hazardous at the time of detection but justifies scheduled repair based on probable future hazard, including proximity to occupied structures or High Consequence Areas (HCA), or elevated gas concentration trending toward hazardous levels. - **Grade 3 \u2014 non-hazardous, monitor.** The leak is not hazardous at the time of detection and can reasonably be expected to remain non-hazardous, typically low-concentration leaks in open right-of-way, away from structures, venting freely to atmosphere.",
+        "score": 0.6381
+      },
+      {
+        "chunk_id": "gas-leak-response-procedures_sec8_0",
+        "source_doc": "gas-leak-response-procedures.md",
+        "location": "Gas Leak Response Procedures & Regulatory Reference Digest > 8. Hazardous Area Classification (HCA) & Notification",
+        "text": "- A **High Consequence Area (HCA)** flag indicates population density, occupied structures, or identified sites (schools, hospitals) within the potential impact radius of a worst-case release on that segment, per PNGRB T4S and OISD-226 CGD safety guidance. - Any Grade 1 or escalating Grade 2 leak within an HCA requires proactive notification of the affected occupants/facility and, for public-safety-relevant leaks, coordination with local fire and emergency services in addition to internal gas-control notification. - Distance-to-building thresholds (e.g. \u226420m) are used as a proxy for HCA proximity when a formal HCA polygon flag is not independently available for a given segment.",
+        "score": 0.5756
+      },
+      {
+        "chunk_id": "gas-leak-response-procedures_sec3_0",
+        "source_doc": "gas-leak-response-procedures.md",
+        "location": "Gas Leak Response Procedures & Regulatory Reference Digest > 3. Immediate Response Procedure \u2014 Grade 1 (Hazardous)",
+        "text": "1. **Eliminate ignition sources** in the affected area immediately: no smoking, no electrical switches, no vehicle ignition within the hazard radius. 2. **Evacuate and ventilate** any structure where gas has migrated or is suspected to have migrated (paved-capping cases); open doors/windows if safe to do so; do not use powered ventilation equipment that could itself be an ignition source. 3. **Establish isolation:** dispatch crew to the nearest upstream and downstream isolation valves for the affected segment; isolate the segment per the segment's MAOP and valve-spacing record. 4. **Continuous atmosphere monitoring** at the leak site and in any structure within the migration radius using intrinsically safe gas detectors until concentration is confirmed below 20% of LEL and trending down. 5. **Notify emergency services and gas control center** immediately; declare a gas emergency per the utility's emergency response plan; target response time is sub-30-minute arrival on site. 6. **Human approval gate:** dispatch of field crew for physical isolation requires human confirmation of the recommended action before execution \u2014 no autonomous valve isolation (maturity level L3).",
+        "score": 0.5065
+      }
+    ]
+  },
+  {
+    "incident_id": "INC-0007",
+    "query": "Grade 3 gas leak, methane/acoustic detected, soil surface capping, in open right-of-way \u2014 isolation and emergency response procedure.",
+    "citations": [
+      {
+        "chunk_id": "gas-leak-response-procedures_sec1_0",
+        "source_doc": "gas-leak-response-procedures.md",
+        "location": "Gas Leak Response Procedures & Regulatory Reference Digest > 1. Leak Grade Classification Criteria",
+        "text": "Gas distribution leaks are classified into three grades based on hazard potential, following the GPTC Guide classification adopted under 49 CFR Part 192 Subpart M leak-survey and repair requirements: - **Grade 1 \u2014 existing or probable hazard, requires immediate action.** Any leak that represents an existing or probable hazard to persons or property and requires immediate repair or continuous action until the condition is no longer hazardous. Triggers include: gas concentration at or above a significant fraction of the lower explosive limit (LEL, ~5% vol methane in air) in a confined space or structure; gas migrating into or under a building; multiple corroborating signals (pressure loss with confirmed gas presence) indicating an uncontrolled release. - **Grade 2 \u2014 non-hazardous at time of detection, justifies scheduled repair.** The leak is recognized as non-hazardous at the time of detection but justifies scheduled repair based on probable future hazard, including proximity to occupied structures or High Consequence Areas (HCA), or elevated gas concentration trending toward hazardous levels. - **Grade 3 \u2014 non-hazardous, monitor.** The leak is not hazardous at the time of detection and can reasonably be expected to remain non-hazardous, typically low-concentration leaks in open right-of-way, away from structures, venting freely to atmosphere.",
+        "score": 0.6066
+      },
+      {
+        "chunk_id": "gas-leak-response-procedures_sec3_0",
+        "source_doc": "gas-leak-response-procedures.md",
+        "location": "Gas Leak Response Procedures & Regulatory Reference Digest > 3. Immediate Response Procedure \u2014 Grade 1 (Hazardous)",
+        "text": "1. **Eliminate ignition sources** in the affected area immediately: no smoking, no electrical switches, no vehicle ignition within the hazard radius. 2. **Evacuate and ventilate** any structure where gas has migrated or is suspected to have migrated (paved-capping cases); open doors/windows if safe to do so; do not use powered ventilation equipment that could itself be an ignition source. 3. **Establish isolation:** dispatch crew to the nearest upstream and downstream isolation valves for the affected segment; isolate the segment per the segment's MAOP and valve-spacing record. 4. **Continuous atmosphere monitoring** at the leak site and in any structure within the migration radius using intrinsically safe gas detectors until concentration is confirmed below 20% of LEL and trending down. 5. **Notify emergency services and gas control center** immediately; declare a gas emergency per the utility's emergency response plan; target response time is sub-30-minute arrival on site. 6. **Human approval gate:** dispatch of field crew for physical isolation requires human confirmation of the recommended action before execution \u2014 no autonomous valve isolation (maturity level L3).",
+        "score": 0.5447
+      },
+      {
+        "chunk_id": "gas-leak-response-procedures_sec2_0",
+        "source_doc": "gas-leak-response-procedures.md",
+        "location": "Gas Leak Response Procedures & Regulatory Reference Digest > 2. Surface Capping & Migration Guidance",
+        "text": "Ground cover over a leaking pipe is a primary grade escalator, independent of leak magnitude, because it governs whether escaping gas vents safely upward or migrates laterally underground: - **Soil / grass / unpaved cover:** permeable to gas; a leak typically vents vertically to atmosphere and disperses, which is why an unpaved leak away from occupancy is usually Grade 3 even at moderate concentration. - **Asphalt / concrete / paved cover:** impermeable; escaping gas cannot vent vertically and instead migrates laterally underground, often for tens of meters, following the path of least resistance (utility trenches, sewer lines, building foundations) until it finds an entry point into a structure. A leak under pavement must be treated as **Grade 1 regardless of measured surface concentration**, because the absence of a strong surface reading does not rule out gas accumulating in a nearby basement or utility vault. - Confinement type (`below_pavement` vs `open_row`) should be read together with capping type: below-pavement confinement combined with paved capping is the highest-migration-risk configuration and always escalates to Grade 1 under this scheme.",
+        "score": 0.5214
+      }
+    ]
+  },
+  {
+    "incident_id": "INC-0008",
+    "query": "Grade 1 gas leak, methane/acoustic detected, asphalt surface capping, in open right-of-way \u2014 isolation and emergency response procedure.",
+    "citations": [
+      {
+        "chunk_id": "gas-leak-response-procedures_sec1_0",
+        "source_doc": "gas-leak-response-procedures.md",
+        "location": "Gas Leak Response Procedures & Regulatory Reference Digest > 1. Leak Grade Classification Criteria",
+        "text": "Gas distribution leaks are classified into three grades based on hazard potential, following the GPTC Guide classification adopted under 49 CFR Part 192 Subpart M leak-survey and repair requirements: - **Grade 1 \u2014 existing or probable hazard, requires immediate action.** Any leak that represents an existing or probable hazard to persons or property and requires immediate repair or continuous action until the condition is no longer hazardous. Triggers include: gas concentration at or above a significant fraction of the lower explosive limit (LEL, ~5% vol methane in air) in a confined space or structure; gas migrating into or under a building; multiple corroborating signals (pressure loss with confirmed gas presence) indicating an uncontrolled release. - **Grade 2 \u2014 non-hazardous at time of detection, justifies scheduled repair.** The leak is recognized as non-hazardous at the time of detection but justifies scheduled repair based on probable future hazard, including proximity to occupied structures or High Consequence Areas (HCA), or elevated gas concentration trending toward hazardous levels. - **Grade 3 \u2014 non-hazardous, monitor.** The leak is not hazardous at the time of detection and can reasonably be expected to remain non-hazardous, typically low-concentration leaks in open right-of-way, away from structures, venting freely to atmosphere.",
+        "score": 0.5917
+      },
+      {
+        "chunk_id": "gas-leak-response-procedures_sec2_0",
+        "source_doc": "gas-leak-response-procedures.md",
+        "location": "Gas Leak Response Procedures & Regulatory Reference Digest > 2. Surface Capping & Migration Guidance",
+        "text": "Ground cover over a leaking pipe is a primary grade escalator, independent of leak magnitude, because it governs whether escaping gas vents safely upward or migrates laterally underground: - **Soil / grass / unpaved cover:** permeable to gas; a leak typically vents vertically to atmosphere and disperses, which is why an unpaved leak away from occupancy is usually Grade 3 even at moderate concentration. - **Asphalt / concrete / paved cover:** impermeable; escaping gas cannot vent vertically and instead migrates laterally underground, often for tens of meters, following the path of least resistance (utility trenches, sewer lines, building foundations) until it finds an entry point into a structure. A leak under pavement must be treated as **Grade 1 regardless of measured surface concentration**, because the absence of a strong surface reading does not rule out gas accumulating in a nearby basement or utility vault. - Confinement type (`below_pavement` vs `open_row`) should be read together with capping type: below-pavement confinement combined with paved capping is the highest-migration-risk configuration and always escalates to Grade 1 under this scheme.",
+        "score": 0.5221
+      },
+      {
+        "chunk_id": "gas-leak-response-procedures_sec3_0",
+        "source_doc": "gas-leak-response-procedures.md",
+        "location": "Gas Leak Response Procedures & Regulatory Reference Digest > 3. Immediate Response Procedure \u2014 Grade 1 (Hazardous)",
+        "text": "1. **Eliminate ignition sources** in the affected area immediately: no smoking, no electrical switches, no vehicle ignition within the hazard radius. 2. **Evacuate and ventilate** any structure where gas has migrated or is suspected to have migrated (paved-capping cases); open doors/windows if safe to do so; do not use powered ventilation equipment that could itself be an ignition source. 3. **Establish isolation:** dispatch crew to the nearest upstream and downstream isolation valves for the affected segment; isolate the segment per the segment's MAOP and valve-spacing record. 4. **Continuous atmosphere monitoring** at the leak site and in any structure within the migration radius using intrinsically safe gas detectors until concentration is confirmed below 20% of LEL and trending down. 5. **Notify emergency services and gas control center** immediately; declare a gas emergency per the utility's emergency response plan; target response time is sub-30-minute arrival on site. 6. **Human approval gate:** dispatch of field crew for physical isolation requires human confirmation of the recommended action before execution \u2014 no autonomous valve isolation (maturity level L3).",
+        "score": 0.5135
+      }
+    ]
+  }
+]
