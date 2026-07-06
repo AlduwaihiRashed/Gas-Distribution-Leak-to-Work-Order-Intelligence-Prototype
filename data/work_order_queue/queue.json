@@ -62,9 +62,9 @@
       ],
       "degraded_mode": false
     },
-    "status": "AWAITING_APPROVAL",
+    "status": "APPROVED_DISPATCHED",
     "routed_at": "2026-07-02T10:32:51.551583+00:00",
-    "approved_at": null
+    "approved_at": "2026-07-04T15:41:30.892100+00:00"
   },
   "INC-0004": {
     "incident_id": "INC-0004",

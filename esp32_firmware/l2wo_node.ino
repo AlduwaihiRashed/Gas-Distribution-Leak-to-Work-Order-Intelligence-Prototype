@@ -5,8 +5,13 @@
  * docs/hardware-implementation-guide.md, but NOT tested on physical
  * hardware — no ESP32 board is attached to the dev environment this was
  * written in. src/simulate_esp32.py stands in for this firmware in all
- * software testing done so far. Treat this as a starting point to compile,
- * flash, and verify on real hardware, not as a validated artifact.
+ * software testing done so far.
+ *
+ * OWNERSHIP: this is a starting draft for Mohammed (hardware/electrical)
+ * and Bilal to compile, flash, calibrate, and finalize on the bench — not
+ * a validated artifact. Every TODO below (sensor calibration curves, NTP
+ * timestamping) is a placeholder specifically left for that review, not
+ * an oversight.
  *
  * Responsibilities:
  *   1. Sample methane/pressure/acoustic sensors, POST each reading to the
@@ -38,7 +43,7 @@ const uint16_t MQTT_PORT  = 1883;
 const char* SEGMENT_ID    = "SEG-001";                     // matches synthetic_telemetry.csv segment ids
 
 // Static segment metadata — sent with every reading per the API contract
-// (docs/hardware-implementation-guide.md §3); pull real values from asset
+// (docs/hardware-implementation-guide.md §4); pull real values from asset
 // records for a live segment.
 const char* MATERIAL             = "PE";
 const int   INSTALL_YEAR         = 2008;

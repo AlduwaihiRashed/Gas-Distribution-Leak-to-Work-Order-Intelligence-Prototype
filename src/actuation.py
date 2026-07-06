@@ -54,35 +54,47 @@ def publish_isolate(segment_id: str, incident_id: str, timeout_s: float = 3.0) -
     """Fires the isolate command synchronously, in-process, at grading time —
     this is the call that bypasses N8N's poll cadence and the LLM entirely.
     Records `commanded_at` immediately so latency can be measured once the
-    confirmation arrives, whenever that is."""
+    confirmation arrives, whenever that is.
+
+    If the broker itself is unreachable, this must not raise: the incident
+    has already been graded and written to graded_incidents.json by the
+    caller before this runs, and an MQTT hiccup must never take that
+    safety record down with it (blueprint B.2[2a], hardware guide §4).
+    Records `actuator_commanded: False` instead so the failure is visible,
+    not silent."""
     commanded_at = time.monotonic()
     commanded_at_iso = _now()
 
-    client = mqtt.Client(mqtt.CallbackAPIVersion.VERSION2)
-    client.connect(MQTT_HOST, MQTT_PORT, keepalive=10)
-    payload = json.dumps({
-        "incident_id": incident_id,
+    entry = {
         "segment_id": segment_id,
+        "actuator_commanded": False,
         "commanded_at": commanded_at_iso,
-    })
-    client.publish(f"l2wo/{segment_id}/isolate", payload, qos=1, retain=True)
-    client.loop(timeout=timeout_s)
-    client.disconnect()
+        "commanded_at_monotonic": commanded_at,
+        "actuator_confirmed_state": "unknown",
+        "confirmed_at": None,
+        "actuator_command_latency_s": None,
+    }
+    try:
+        client = mqtt.Client(mqtt.CallbackAPIVersion.VERSION2)
+        client.connect(MQTT_HOST, MQTT_PORT, keepalive=10)
+        payload = json.dumps({
+            "incident_id": incident_id,
+            "segment_id": segment_id,
+            "commanded_at": commanded_at_iso,
+        })
+        client.publish(f"l2wo/{segment_id}/isolate", payload, qos=1, retain=True)
+        client.loop(timeout=timeout_s)
+        client.disconnect()
+        entry["actuator_commanded"] = True
+    except OSError as exc:
+        entry["command_error"] = str(exc)
 
     with _state_lock:
         state = _load_state()
-        state[incident_id] = {
-            "segment_id": segment_id,
-            "actuator_commanded": True,
-            "commanded_at": commanded_at_iso,
-            "commanded_at_monotonic": commanded_at,
-            "actuator_confirmed_state": "unknown",
-            "confirmed_at": None,
-            "actuator_command_latency_s": None,
-        }
+        state[incident_id] = entry
         _save_state(state)
 
-    return state[incident_id]
+    return entry
 
 
 def get_actuator_state(incident_id: str) -> dict | None:
@@ -108,19 +120,41 @@ def _on_confirmation(client, userdata, msg):
             # so a confirmation is never silently dropped.
             entry = {"segment_id": payload.get("segment_id"), "actuator_commanded": True,
                       "commanded_at": None, "commanded_at_monotonic": None}
-        entry["actuator_confirmed_state"] = payload.get("state", "unknown")
-        entry["confirmed_at"] = _now()
-        if entry.get("commanded_at_monotonic") is not None:
-            entry["actuator_command_latency_s"] = round(time.monotonic() - entry["commanded_at_monotonic"], 3)
+        # Only the first confirmation for a given incident should set the
+        # timing fields. A duplicate/replayed message on this topic (e.g. a
+        # simulator or ESP32 that reconnects, re-reads the *retained*
+        # l2wo/{segment}/isolate command, and re-publishes its confirmation)
+        # must not overwrite an already-recorded latency with time elapsed
+        # since the original command — that produced a bogus multi-minute
+        # "latency" for an incident that actually confirmed in ~0.4s.
+        if entry.get("confirmed_at") is None:
+            entry["actuator_confirmed_state"] = payload.get("state", "unknown")
+            entry["confirmed_at"] = _now()
+            if entry.get("commanded_at_monotonic") is not None:
+                entry["actuator_command_latency_s"] = round(time.monotonic() - entry["commanded_at_monotonic"], 3)
         state[incident_id] = entry
         _save_state(state)
 
 
+def _on_connect(client, userdata, flags, reason_code, properties=None):
+    if reason_code == 0:
+        client.subscribe("l2wo/+/actuator_state", qos=1)
+
+
 def start_confirmation_listener() -> mqtt.Client:
-    """Runs in a background thread for the lifetime of the API process."""
+    """Runs in a background thread for the lifetime of the API process.
+
+    Uses connect_async + loop_start rather than the blocking connect() —
+    if the broker is down when the API starts, a blocking connect() raises
+    and (since this runs from a FastAPI startup handler) takes the *entire*
+    API down with it, including all the Grade 2/3 work-order functionality
+    that has nothing to do with MQTT. connect_async lets paho's network
+    loop retry in the background instead; the API serves everything else
+    normally and actuation confirmations just start working once the
+    broker becomes reachable."""
     client = mqtt.Client(mqtt.CallbackAPIVersion.VERSION2)
     client.on_message = _on_confirmation
-    client.connect(MQTT_HOST, MQTT_PORT, keepalive=60)
-    client.subscribe("l2wo/+/actuator_state", qos=1)
+    client.on_connect = _on_connect
+    client.connect_async(MQTT_HOST, MQTT_PORT, keepalive=60)
     client.loop_start()
     return client

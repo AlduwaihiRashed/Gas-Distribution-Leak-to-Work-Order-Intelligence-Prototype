@@ -29,6 +29,7 @@ Run with: uvicorn api:app --app-dir src --host 0.0.0.0 --port 8000
 
 import json
 import sys
+from contextlib import asynccontextmanager
 from datetime import datetime, timezone
 from pathlib import Path
 from threading import Lock
@@ -50,13 +51,16 @@ IN_PROGRESS = "IN_PROGRESS"                    # synthesis claimed but not finis
 AWAITING_APPROVAL = "AWAITING_APPROVAL"       # auto-created + auto-routed; not yet dispatched
 APPROVED_DISPATCHED = "APPROVED_DISPATCHED"    # human approved physical dispatch
 
-app = FastAPI(title="L2WO pipeline API")
+@asynccontextmanager
+async def _lifespan(app: FastAPI):
+    client = actuation.start_confirmation_listener()
+    yield
+    client.loop_stop()
+    client.disconnect()
+
+
+app = FastAPI(title="L2WO pipeline API", lifespan=_lifespan)
 _queue_lock = Lock()
-
-
-@app.on_event("startup")
-def _start_actuator_listener():
-    actuation.start_confirmation_listener()
 
 
 def _with_actuator_state(entry: dict) -> dict:

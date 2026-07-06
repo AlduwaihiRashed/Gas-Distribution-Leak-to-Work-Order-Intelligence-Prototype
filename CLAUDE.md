@@ -114,6 +114,8 @@ Streamlit UI aimed at a **non-technical** viewer (dispatcher/supervisor, not an 
 
 **This is a benchtop/demo rig, not live gas-distribution infrastructure.** The relay/servo models a valve; it does not control one. That distinction is what makes full autonomous isolation acceptable to build and demonstrate here — see Maturity Level.
 
+**Project split:** the split is by *supervisor*, not by person — Rashed and Mohammed both work both tracks together. The software/AI track (this repo's `src/`, N8N, dashboard) is supervised by Casey. The hardware track (the ESP32 rig itself — component selection, wiring, calibration, assembly) is supervised by Bilal, done hands-on in the office with both Rashed and Mohammed present, Mohammed leading given his electrical background. Everything under `esp32_firmware/` and `docs/hardware-implementation-guide.md` is a draft for that review, not settled — see the guide's own "Ownership" note. When asked for hardware-track work going forward, default to diagrams, wiring tables, and summaries the team can act on directly rather than more firmware/implementation code.
+
 ## Maturity Level
 
 Two different maturity levels apply depending on what the actuator is wired to, and conflating them would misrepresent the prototype's actual safety readiness:
