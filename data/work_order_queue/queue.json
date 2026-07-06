@@ -203,9 +203,9 @@
       ],
       "degraded_mode": false
     },
-    "status": "AWAITING_APPROVAL",
+    "status": "APPROVED_DISPATCHED",
     "routed_at": "2026-07-02T10:33:22.276345+00:00",
-    "approved_at": null
+    "approved_at": "2026-07-06T07:46:28.292376+00:00"
   },
   "LIVE-1782988411-0002": {
     "incident_id": "LIVE-1782988411-0002",

@@ -156,6 +156,7 @@ Whole-flow budget: **stages [1]–[5] complete in < 40 seconds** per incident at
 - Readings shown in plain language (e.g. "gas level: high, near a building" rather than `methane_pct_lel: 62`).
 - Each tile shows an **action indicator** — whether a work order has been auto-created/routed for that incident and whether it is still awaiting human approval or has been dispatched.
 - Reads directly off the same incident/grade/work-order payloads produced by [1]–[5]; the dashboard never re-derives a grade itself (keeps grading single-sourced and auditable, consistent with D3).
+- Visual language: a dark monitoring-console aesthetic (Nord palette) — dark panels, frost-blue chrome, aurora-coloured grade badges, monospace HUD readouts on IDs/timestamps/KPI values. Purely presentational; the red/amber/green grade semantics above are unchanged by it.
 
 ### B.3 Technology stack (house-aligned, deliberately minimal)
 | Concern | Choice | Why this and not the alternative |

@@ -1,0 +1,13 @@
+# Nord-inspired dark "control room" theme for the L2WO dashboard.
+# Sets Streamlit's own chrome (buttons, sidebar, alerts, checkboxes) to a
+# dark base so custom CSS in dashboard.py only has to layer accents on top,
+# not fight a light default.
+
+[theme]
+base = "dark"
+primaryColor = "#88C0D0"
+backgroundColor = "#2E3440"
+secondaryBackgroundColor = "#3B4252"
+textColor = "#ECEFF4"
+borderColor = "#4C566A"
+font = "sans serif"

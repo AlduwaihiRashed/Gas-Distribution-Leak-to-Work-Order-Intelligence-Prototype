@@ -21,9 +21,9 @@ API_BASE = "http://localhost:8000"
 N8N_APPROVE_WEBHOOK = "http://localhost:5678/webhook/approve-dispatch"
 
 GRADE_STYLE = {
-    1: {"color": "#b3261e", "bg": "#fdecea", "label": "Urgent", "plain": "High gas level, needs immediate action"},
-    2: {"color": "#b7791f", "bg": "#fef5e7", "label": "Scheduled", "plain": "Gas detected, repair scheduled"},
-    3: {"color": "#1e7d47", "bg": "#eafaf1", "label": "Monitor", "plain": "Minor reading, being watched"},
+    1: {"color": "#BF616A", "bg": "rgba(191, 97, 106, 0.14)", "label": "Urgent", "plain": "High gas level, needs immediate action"},
+    2: {"color": "#EBCB8B", "bg": "rgba(235, 203, 139, 0.12)", "label": "Scheduled", "plain": "Gas detected, repair scheduled"},
+    3: {"color": "#A3BE8C", "bg": "rgba(163, 190, 140, 0.12)", "label": "Monitor", "plain": "Minor reading, being watched"},
 }
 
 STATUS_LABEL = {
@@ -36,21 +36,70 @@ STATUS_LABEL = {
 # overridden to wrap, so the number of tiles per row adapts to the actual
 # browser width (narrow laptop vs. wide desktop) with no JS viewport bridge —
 # keeps the stack Streamlit-only per house guidance.
+#
+# Visual language: Nord palette (KDE "Nordic" theme family) laid out as a
+# dark control-room console — deep polar-night panels, frost-blue chrome,
+# aurora accent colors reserved for grade/status signals, monospace readouts
+# on anything numeric/timestamped so it reads like instrumentation rather
+# than a web form.
 APP_CSS = """
 <style>
 :root {
-    --l2wo-navy: #101828;
-    --l2wo-navy-soft: #1d2939;
-    --l2wo-border: #e4e7ec;
-    --l2wo-muted: #667085;
-    --l2wo-red: #b3261e;
-    --l2wo-amber: #b7791f;
-    --l2wo-green: #1e7d47;
+    /* Nord — Polar Night */
+    --nord0: #2E3440;
+    --nord1: #3B4252;
+    --nord2: #434C5E;
+    --nord3: #4C566A;
+    /* Nord — Snow Storm */
+    --nord4: #D8DEE9;
+    --nord5: #E5E9F0;
+    --nord6: #ECEFF4;
+    /* Nord — Frost */
+    --nord7: #8FBCBB;
+    --nord8: #88C0D0;
+    --nord9: #81A1C1;
+    --nord10: #5E81AC;
+    /* Nord — Aurora */
+    --nord11: #BF616A;
+    --nord12: #D08770;
+    --nord13: #EBCB8B;
+    --nord14: #A3BE8C;
+    --nord15: #B48EAD;
+
+    --l2wo-muted: var(--nord4);
+    --l2wo-red: var(--nord11);
+    --l2wo-amber: var(--nord13);
+    --l2wo-green: var(--nord14);
+    --hud-mono: ui-monospace, "SFMono-Regular", "JetBrains Mono", "Cascadia Mono", Consolas, "Liberation Mono", monospace;
 }
 
 html, body, [class*="css"] {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, Arial, sans-serif;
 }
+
+/* Console shell: deep polar-night gradient + a faint schematic grid, like a
+   wall panel rather than flat web-page white/gray. */
+.stApp {
+    background:
+        radial-gradient(1200px 700px at 15% -10%, rgba(94, 129, 172, 0.16), transparent 60%),
+        radial-gradient(900px 600px at 100% 0%, rgba(136, 192, 208, 0.08), transparent 55%),
+        repeating-linear-gradient(0deg, rgba(216, 222, 233, 0.035) 0px, rgba(216, 222, 233, 0.035) 1px, transparent 1px, transparent 32px),
+        repeating-linear-gradient(90deg, rgba(216, 222, 233, 0.035) 0px, rgba(216, 222, 233, 0.035) 1px, transparent 1px, transparent 32px),
+        var(--nord0);
+}
+
+[data-testid="stSidebar"] {
+    background: linear-gradient(180deg, var(--nord0) 0%, #262b35 100%);
+    border-right: 1px solid var(--nord2);
+}
+[data-testid="stSidebar"] * { color: var(--nord5) !important; }
+[data-testid="stSidebar"] h2, [data-testid="stSidebar"] .stMarkdown h2 {
+    color: var(--nord8) !important;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    font-size: 0.95rem;
+}
+[data-testid="stSidebar"] hr { border-color: var(--nord2); }
 
 .block-container {
     max-width: 1800px;
@@ -58,34 +107,56 @@ html, body, [class*="css"] {
     overflow-x: hidden;
 }
 
-/* Header bar */
+/* Header bar — instrument-panel strip with a lit frost-cyan top edge */
 .l2wo-header {
+    position: relative;
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 1rem;
     flex-wrap: wrap;
-    background: linear-gradient(135deg, var(--l2wo-navy) 0%, var(--l2wo-navy-soft) 100%);
-    color: #ffffff;
+    background: linear-gradient(135deg, var(--nord1) 0%, var(--nord0) 100%);
+    color: var(--nord6);
     padding: 20px 28px;
-    border-radius: 12px;
+    border-radius: 10px;
+    border: 1px solid var(--nord2);
+    box-shadow: 0 0 0 1px rgba(136, 192, 208, 0.06), 0 12px 32px -16px rgba(0, 0, 0, 0.6);
     margin-bottom: 1.25rem;
+    overflow: hidden;
+}
+.l2wo-header::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--nord10), var(--nord8), var(--nord10));
+}
+.l2wo-header-eyebrow {
+    font-family: var(--hud-mono);
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--nord9);
+    margin-bottom: 4px;
 }
 .l2wo-header-title {
     font-size: 1.5rem;
     font-weight: 700;
     text-wrap: balance;
     margin: 0;
+    color: var(--nord6);
 }
 .l2wo-header-subtitle {
     font-size: 0.9rem;
-    color: #cbd5e1;
+    color: var(--nord4);
     margin-top: 4px;
 }
 .l2wo-header-meta {
     text-align: right;
     font-size: 0.85rem;
-    color: #cbd5e1;
+    font-family: var(--hud-mono);
+    color: var(--nord4);
     font-variant-numeric: tabular-nums;
 }
 .l2wo-status-dot {
@@ -97,14 +168,14 @@ html, body, [class*="css"] {
     margin-right: 6px;
     vertical-align: middle;
 }
-.l2wo-status-dot.ok { background: #22c55e; }
-.l2wo-status-dot.down { background: #ef4444; }
+.l2wo-status-dot.ok { background: var(--nord14); box-shadow: 0 0 8px 1px rgba(163, 190, 140, 0.7); }
+.l2wo-status-dot.down { background: var(--nord11); box-shadow: 0 0 8px 1px rgba(191, 97, 106, 0.7); }
 .l2wo-status-dot.ok::after {
     content: "";
     position: absolute;
     inset: 0;
     border-radius: 50%;
-    background: #22c55e;
+    background: var(--nord14);
     animation: l2wo-pulse 2s infinite;
 }
 
@@ -117,7 +188,7 @@ html, body, [class*="css"] {
     .l2wo-status-dot.ok::after { animation: none; }
 }
 
-/* KPI cards */
+/* KPI cards — dark gauges with a glowing accent edge per grade */
 .l2wo-kpi-row {
     display: flex;
     gap: 14px;
@@ -126,25 +197,26 @@ html, body, [class*="css"] {
 }
 .l2wo-kpi-card {
     flex: 1 1 220px;
-    background: #ffffff;
-    border: 1px solid var(--l2wo-border);
-    border-left: 4px solid var(--kpi-color, var(--l2wo-muted));
-    border-radius: 10px;
+    background: linear-gradient(180deg, var(--nord1) 0%, var(--nord0) 100%);
+    border: 1px solid var(--nord2);
+    border-left: 4px solid var(--kpi-color, var(--nord3));
+    border-radius: 8px;
     padding: 14px 18px;
-    box-shadow: 0 1px 2px rgba(16, 24, 40, 0.04);
+    box-shadow: 0 0 24px -12px var(--kpi-color, transparent), inset 0 1px 0 rgba(255, 255, 255, 0.03);
 }
 .l2wo-kpi-label {
     font-size: 0.72rem;
     font-weight: 600;
-    letter-spacing: 0.04em;
+    letter-spacing: 0.06em;
     text-transform: uppercase;
-    color: var(--l2wo-muted);
+    color: var(--nord4);
 }
 .l2wo-kpi-value {
+    font-family: var(--hud-mono);
     font-size: 2.1rem;
     font-weight: 700;
     font-variant-numeric: tabular-nums;
-    color: #101828;
+    color: var(--nord6);
     line-height: 1.2;
 }
 
@@ -159,6 +231,18 @@ div[data-testid="column"] {
     flex: 1 1 320px;
 }
 
+/* Bordered st.container() panels — recent + older Streamlit testids both
+   targeted so the console-panel look survives a Streamlit version bump. */
+div[data-testid="stVerticalBlockBorderWrapper"],
+div[data-testid="stVerticalBlock"] > div[data-testid="stVerticalBlockBorderWrapper"] {
+    background: linear-gradient(180deg, var(--nord1) 0%, var(--nord0) 100%);
+    border-radius: 10px !important;
+}
+div[data-testid="stVerticalBlockBorderWrapper"] > div {
+    border-color: var(--nord2) !important;
+    border-radius: 10px !important;
+}
+
 .l2wo-tile-head {
     display: flex;
     flex-direction: column;
@@ -167,9 +251,10 @@ div[data-testid="column"] {
     min-width: 0;
 }
 .l2wo-tile-segment {
+    font-family: var(--hud-mono);
     font-size: 1.05rem;
     font-weight: 700;
-    color: #101828;
+    color: var(--nord6);
     word-break: break-word;
     min-width: 0;
 }
@@ -177,28 +262,60 @@ div[data-testid="column"] {
     flex-shrink: 0;
     display: inline-block;
     padding: 2px 10px;
-    border-radius: 999px;
+    border-radius: 3px;
     font-size: 0.72rem;
     font-weight: 700;
-    letter-spacing: 0.03em;
+    letter-spacing: 0.05em;
     text-transform: uppercase;
     white-space: nowrap;
-    color: #ffffff;
-    background: var(--badge-color, var(--l2wo-muted));
+    color: var(--nord0);
+    background: var(--badge-color, var(--nord3));
+    box-shadow: 0 0 10px -1px var(--badge-color, transparent);
 }
 .l2wo-tile-plain {
     font-size: 0.92rem;
-    color: #344054;
+    color: var(--nord5);
     margin-top: 4px;
 }
 .l2wo-summary {
     font-size: 0.92rem;
-    color: #344054;
+    color: var(--nord4);
     display: -webkit-box;
     -webkit-line-clamp: 4;
     -webkit-box-orient: vertical;
     overflow: hidden;
     word-break: break-word;
+}
+
+/* Buttons — frost-blue console switches with a hover glow */
+.stButton > button {
+    border-radius: 6px !important;
+    border: 1px solid var(--nord9) !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.02em;
+    transition: box-shadow 0.15s ease, transform 0.05s ease;
+}
+.stButton > button:hover {
+    box-shadow: 0 0 16px -2px rgba(136, 192, 208, 0.6);
+    border-color: var(--nord8) !important;
+}
+.stButton > button:active { transform: translateY(1px); }
+
+/* Alert boxes (success/warning/error/info) — keep them console-dark, with a
+   thin left rail in the alert's own semantic color for at-a-glance triage. */
+div[data-testid="stAlertContainer"] {
+    border-radius: 8px;
+    background: var(--nord1) !important;
+    border: 1px solid var(--nord2);
+}
+div[data-testid="stAlertContainer"]:has(div[data-testid="stAlertContentError"]) { border-left: 3px solid var(--nord11); }
+div[data-testid="stAlertContainer"]:has(div[data-testid="stAlertContentWarning"]) { border-left: 3px solid var(--nord13); }
+div[data-testid="stAlertContainer"]:has(div[data-testid="stAlertContentSuccess"]) { border-left: 3px solid var(--nord14); }
+div[data-testid="stAlertContainer"]:has(div[data-testid="stAlertContentInfo"]) { border-left: 3px solid var(--nord9); }
+
+/* Timestamps / captions read like HUD telemetry, not body copy */
+.stCaption, [data-testid="stCaptionContainer"] {
+    font-family: var(--hud-mono) !important;
 }
 </style>
 """
@@ -301,6 +418,7 @@ def render_header(connected: bool) -> None:
         f"""
         <div class="l2wo-header">
             <div>
+                <div class="l2wo-header-eyebrow">L2WO · Segment Monitoring Console</div>
                 <h1 class="l2wo-header-title">Gas Distribution — Live Monitoring</h1>
                 <div class="l2wo-header-subtitle">🔴 Urgent · 🟠 Scheduled repair · 🟢 Monitoring only</div>
             </div>
